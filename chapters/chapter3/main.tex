@@ -46,18 +46,28 @@ Docker Containers are:
 
 \section{Software Environnement}
 \subsection{Apache Zookeeper}
+\epigraph{\textbf{ZooKeeper: Because Coordinating Distributed Systems is a Zoo}}{\textit{Hadoop, Nov. 19, 2012}}
+
 \begin{wrapfigure}[8]{r}{4cm}
     \includegraphics[width=4cm]{images/zookeeper.jpeg}
     \end{wrapfigure}
-ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. \\
-All of these kinds of services are used in some form or another by distributed applications. Each time they are implemented there is a lot of work that goes into fixing the bugs and race conditions that are inevitable.\\
-Because of the difficulty of implementing these kinds of services, applications initially usually skimp on them, which make them brittle in the presence of change and difficult to manage. Even when done correctly, different implementations of these services lead to management complexity when the applications are deployed.
+ZooKeeper is a coordination service for distributed Systems. \textbf{SolrCloud} uses ZooKeeper for three 
+critical operations:
+\begin{itemize}
+    \item Centralized configuration and storage.
+    \item Detection and notification when the cluster state changes.
+    \item Shard-Leader election. 
+\end{itemize}  
+\textbf{ZooKeeper} is also a distributed system that can be deployed to be fault tolerant and highly
+scalable. For production, we set up a separate ZooKeeper ensemble made up of at
+least three nodes, 3 as ZooKeeper relies on a majority of nodes agreeing on the state of a znode at all times.
 \bigbreak
 \bigbreak
 \bigbreak
 \bigbreak
 \bigbreak
 \bigbreak
+
 \subsection{Apache Solr}
 As mentioned below we will be using Apache Solr for indexing our investment dataset.
 \subsection{Apache Hadoop}

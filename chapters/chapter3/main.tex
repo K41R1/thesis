@@ -25,15 +25,25 @@ In this section we present, the logical architecture of our framework to index i
     \item \textbf{Hadoop (HDFS)}: 1 NameNode and 2 DataNode used to store index and provide easy scaling.
 \end{itemize}
 
+\begin{figure}[!htb]
+    \begin{center}
+        \includegraphics[scale=0.5]{images/l_architecture.png}        
+    \end{center}
+    \caption[Logical Architecture - Indexing Framework]{Proposed architecture for indexing static data}
+\end{figure}
+
 \subsection{Docker (Physical Architecture)}
 all instances are running under \textbf{Docker Engine} to simulate a Mini-Cloud Environnement.
 \subsubsection{Definition}
 Docker is a set of platform as a service (PaaS) products that uses OS-level virtualization to deliver software in packages called containers.
 \subsubsection{Docker Conatiner}
 A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. \\A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
-\begin{center}
-    \includegraphics[scale=0.2]{images/container.png}
-\end{center}
+\begin{figure}[!htb]
+    \begin{center}
+        \includegraphics[scale=0.2]{images/container.png}
+    \end{center}
+    \caption[Docker Architecture Overview]{Simple Docker Environnement}
+\end{figure}
 \subsubsection{Benefits}
 Docker Containers are:
 \begin{itemize}
@@ -50,8 +60,8 @@ Docker Containers are:
 
 \begin{wrapfigure}[8]{r}{4cm}
     \includegraphics[width=4cm]{images/zookeeper.jpeg}
-    \end{wrapfigure}
-ZooKeeper is a coordination service for distributed Systems. \textbf{SolrCloud} uses ZooKeeper for three 
+\end{wrapfigure}
+\textbf{ZooKeeper} is a coordination service for distributed Systems. \textbf{SolrCloud} uses ZooKeeper for three 
 critical operations:
 \begin{itemize}
     \item Centralized configuration and storage.
@@ -69,6 +79,20 @@ least three nodes, 3 as ZooKeeper relies on a majority of nodes agreeing on the 
 \bigbreak
 
 \subsection{Apache Solr}
-As mentioned below we will be using Apache Solr for indexing our investment dataset.
-\subsection{Apache Hadoop}
+\begin{wrapfigure}[8]{r}{4cm}
+    \includegraphics[width=4cm]{images/solr.png}
+\end{wrapfigure}
+\textbf{Apache Solr} as our indexing \& searching framework. we'll install and configure \textbf{Solr} on it's distributed version a.k.a \textbf{SolrCloud}
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
 
+\subsection{Apache Hadoop (HDFS)}
+The Hadoop Distributed File System (\textbf{HDFS}) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. \textbf{HDFS} is highly fault-tolerant and is designed to be deployed on low-cost hardware. \\
+\textbf{Solr} has support for writing and reading its index and transaction log files to the HDFS distributed filesystem.
